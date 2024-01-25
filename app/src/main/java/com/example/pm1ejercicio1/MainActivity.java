@@ -27,9 +27,22 @@ public class MainActivity extends AppCompatActivity {
         btnproceso.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(),nombres.getText().toString(),Toast.LENGTH_LONG). show();
-                }
+
+                Bundle enviaDatos=new Bundle(); // se crea Bundle llamado enviadatos para  poder almacenar los datos a enviar a la siguiente pantalla
+                enviaDatos.putString("dato1",nombres.getText().toString());  // aqui guardamos el nombre en el paquete usando la  etiqueta "dato1 y asi para las demas".
+                enviaDatos.putString("dato2",apellidos.getText().toString());
+                enviaDatos.putString("dato3",telefono.getText().toString());
+                // Crear un "Intent" para indicar que queremos ir siguiente pantalla (ActivityPage)
+                Intent  intent=new Intent(MainActivity.this, ActivityPage.class);
+                intent.putExtras(enviaDatos);// nos sirve para poder enviar los datos  desde una actividad de origen a una actividad de destino
+                startActivity(intent); //iniciamos la nueva pantalla
+
+
+            }
 
         });
+
     }
+
+
 }
