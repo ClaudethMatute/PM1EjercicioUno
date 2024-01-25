@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">PM1Ejercicio#1</string>
+    <string name="nombres">Ingrese su Nombre</string>
+    <string name="apellidos">Ingrese su apellido</string>
+    <string name="Telefono">Ingrese su Telefono</string>
+    <string name="Btn_procesar">Procesar</string>
+
 </resources>
