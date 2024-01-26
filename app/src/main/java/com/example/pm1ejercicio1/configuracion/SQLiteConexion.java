@@ -1,4 +1,4 @@
-package configuracion;
+package com.example.pm1ejercicio1.configuracion;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
@@ -15,7 +15,7 @@ public class SQLiteConexion extends SQLiteOpenHelper
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL(Transaciones.CreateTablePersonas);
+        db.execSQL(Transaciones.CreateTablePersonas);//crea la tabla
 
     }
 

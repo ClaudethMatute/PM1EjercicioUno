@@ -2,8 +2,12 @@ package com.example.pm1ejercicio1;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ContentValues;
 import android.content.Intent;
-import android.database.sqlite.SQLiteOpenHelper;
+import com.example.pm1ejercicio1.configuracion.Transaciones;
+import com.example.pm1ejercicio1.configuracion.SQLiteConexion;
+
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -38,14 +42,22 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtras(enviaDatos);// nos sirve para poder enviar los datos  desde una actividad de origen a una actividad de destino
                 startActivity(intent); //iniciamos la nueva pantalla
 
+                AddPerson();
 
             }
 
         });
-       AddPerson();
+
     }
 
     private void AddPerson() {
+            SQLiteConexion conexion = new   SQLiteConexion(this,Transaciones.DBName,null,1);
+            SQLiteDatabase db = conexion.getWritableDatabase(); //modo de escritura
+
+            ContentValues valores=new ContentValues();
+            valores.put(Transaciones.nombre,nombres.getText().toString());
+
+
 
     }
 

@@ -1,9 +1,9 @@
-package configuracion;
+package com.example.pm1ejercicio1.configuracion;
 
 public class Transaciones {
     //nombre de la base de datos
     public static final  String DBName = "PMO12024";
-        //nombre de la tabla
+        //creacion de la tabla en la base de datos
     public static final  String Tablepersonas = "personas";
     //creacion de los campus de la base de datos
     public static final  String id = "id";
