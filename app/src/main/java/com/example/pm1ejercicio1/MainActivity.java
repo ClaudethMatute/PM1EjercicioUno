@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Bundle enviaDatos=new Bundle(); // se crea Bundle llamado enviadatos para  poder almacenar los datos a enviar a la siguiente pantalla
+                Bundle enviaDatos=new Bundle();
                 enviaDatos.putString("dato1",nombres.getText().toString());  // aqui guardamos el nombre en el paquete usando la  etiqueta "dato1 y asi para las demas".
                 enviaDatos.putString("dato2",apellidos.getText().toString());
                 enviaDatos.putString("dato3",telefono.getText().toString());

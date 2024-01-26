@@ -23,15 +23,15 @@ public class ActivityPage extends AppCompatActivity {
         // Obtener el Bundle de datos
         Bundle recibedatos = getIntent().getExtras();
 
-        // Verificar si el Bundle no es nulo
+
         if (recibedatos != null) {
             // Obtener los datos individuales del Bundle
             String nombre = recibedatos.getString("dato1");
             String apellidos = recibedatos.getString("dato2");
             String telefono = recibedatos.getString("dato3");
 
-            // Construir el texto que se mostrará en el TextView
-            String textoMostrar = "Nombre: " + nombre + "\nApellidos: " + apellidos + "\nTeléfono: " + telefono;
+
+            String textoMostrar = "Nombre: " + nombre + "\nApellidos: " + apellidos + "\nTeléfono: " + telefono;  // una cadena de texto la cual se mostrará en el TextView
 
             // mostrar en el TextView
             mostrar.setText(textoMostrar);
