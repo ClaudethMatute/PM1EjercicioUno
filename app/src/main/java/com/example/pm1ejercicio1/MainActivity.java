@@ -15,7 +15,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    EditText nombres, apellidos, telefono;
+    EditText nombres, apellidos, edad,correo;
     Button btnproceso;
 
     @Override
@@ -25,7 +25,8 @@ public class MainActivity extends AppCompatActivity {
 
         nombres = (EditText) findViewById(R.id.nombres);
         apellidos = (EditText) findViewById(R.id.apellidos);
-        telefono = (EditText) findViewById(R.id.telefono);
+        edad = (EditText) findViewById(R.id.telefono);
+        correo = (EditText) findViewById(R.id.correo);
         btnproceso = (Button) findViewById(R.id.btnprocesar);
 
 
@@ -36,7 +37,8 @@ public class MainActivity extends AppCompatActivity {
                 Bundle enviaDatos = new Bundle();
                 enviaDatos.putString("dato1", nombres.getText().toString());  // aqui guardamos el nombre en el paquete usando la  etiqueta "dato1 y asi para las demas".
                 enviaDatos.putString("dato2", apellidos.getText().toString());
-                enviaDatos.putString("dato3", telefono.getText().toString());
+                enviaDatos.putString("dato3", edad.getText().toString());
+                enviaDatos.putString("dato4", correo.getText().toString());
                 // Crear un "Intent" para indicar que queremos ir siguiente pantalla (ActivityPage)
                 Intent intent = new Intent(MainActivity.this, ActivityPage.class);
                 intent.putExtras(enviaDatos);// nos sirve para poder enviar los datos  desde una actividad de origen a una actividad de destino
@@ -53,14 +55,17 @@ public class MainActivity extends AppCompatActivity {
         ContentValues valores = new ContentValues();
         valores.put(Transaciones.nombre, nombres.getText().toString());
         valores.put(Transaciones.apellidos, apellidos.getText().toString());
+        valores.put(Transaciones.edad, edad.getText().toString());
+        valores.put(Transaciones.correo, correo.getText().toString());
 
 
         // Insertar datos en la tabla
         Long resultado = db.insert(Transaciones.Tablepersonas, Transaciones.id, valores);
 
         // Error al insertar
-        Toast.makeText(getApplicationContext(), "Registro Ingresado Correctamente", Toast.LENGTH_SHORT).show();
 
+        Toast.makeText(getApplicationContext(), "Registro Ingresado Correctamente"+ resultado.toString(),
+                Toast.LENGTH_SHORT).show();
 
         db.close();
     }

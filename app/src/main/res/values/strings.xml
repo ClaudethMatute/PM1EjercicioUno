@@ -6,5 +6,7 @@
     <string name="Btn_procesar">Procesar</string>
     <string name="Btn_regresar">regresar</string>
     <string name="Btn_atras">atras</string>
+    <string name="edad">Ingrese Edad</string>
+    <string name="correo">Ingrese el correo</string>
 
 </resources>

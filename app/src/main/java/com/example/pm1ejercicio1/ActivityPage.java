@@ -29,9 +29,12 @@ public class ActivityPage extends AppCompatActivity {
             String nombre = recibedatos.getString("dato1");
             String apellidos = recibedatos.getString("dato2");
             String telefono = recibedatos.getString("dato3");
+            String correo = recibedatos.getString("dato4");
 
 
-            String textoMostrar = "Nombre: " + nombre + "\nApellidos: " + apellidos + "\nTeléfono: " + telefono;  // una cadena de texto la cual se mostrará en el TextView
+
+
+            String textoMostrar = "Nombre: " + nombre + "\nApellidos: " + apellidos + "\nTeléfono: " + telefono+"\n correo: "+correo;  // una cadena de texto la cual se mostrará en el TextView
 
             // mostrar en el TextView
             mostrar.setText(textoMostrar);
