@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
         nombres = (EditText) findViewById(R.id.nombres);
         apellidos = (EditText) findViewById(R.id.apellidos);
-        edad = (EditText) findViewById(R.id.telefono);
+        edad = (EditText) findViewById(R.id.edad);
         correo = (EditText) findViewById(R.id.correo);
         btnproceso = (Button) findViewById(R.id.btnprocesar);
 
