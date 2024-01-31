@@ -1,4 +1,4 @@
-package Models;
+package com.example.pm1ejercicio1.Models;
 
 public class Personas {
     private Integer id;
@@ -20,34 +20,43 @@ public class Personas {
 
     }
     public Integer getId() {
+
         return id;
     }
     public void setId(Integer id) {
+
         this.id = id;
     }
     public String getNombre() {
+
         return nombre;
     }
     public void setNombre(String nombre) {
+
         this.nombre = nombre;
     }
     public String getApellidos() {
+
         return apellidos;
     }
 
     public void setApellidos(String apellidos) {
+
         this.apellidos = apellidos;
     }
 
     public Integer getEdad() {
+
         return edad;
     }
 
     public void setEdad(Integer edad) {
+
         this.edad = edad;
     }
 
     public String getCorreo() {
+
         return correo;
     }
 
