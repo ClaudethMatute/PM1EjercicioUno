@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
         // Insertar datos en la tabla
         Long resultado = db.insert(Transaciones.Tablepersonas, Transaciones.id, valores);
 
-        // Error al insertar
+        //  insertar
 
         Toast.makeText(getApplicationContext(), "Registro Ingresado Correctamente"+ resultado.toString(),
                 Toast.LENGTH_SHORT).show();
