@@ -38,11 +38,13 @@ public class ActivityList extends AppCompatActivity {
     private void ObtenerInfo() {
         SQLiteDatabase db=conexion.getReadableDatabase();
         Personas person=null;
-        Lista=new ArrayList<Personas>();
-
+        Lista=new  ArrayList<Personas>();
 
         // Cursor de base de datos para recorrer los datos
+
         Cursor cursor = db.rawQuery(Transaciones.SelectAllPersonas, null);
+
+
         //recorer el cusor
         while(cursor.moveToNext())
         {
