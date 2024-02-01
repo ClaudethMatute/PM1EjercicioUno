@@ -61,7 +61,8 @@ public class Personas {
     }
 
     public void setCorreo(String correo) {
-        this.correo = correo;
+
+        correo = correo;
     }
 
 }
