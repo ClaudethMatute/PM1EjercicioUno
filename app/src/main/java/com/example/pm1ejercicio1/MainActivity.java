@@ -34,20 +34,20 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Bundle enviaDatos = new Bundle();
-                enviaDatos.putString("dato1", nombres.getText().toString());  // aqui guardamos el nombre en el paquete usando la  etiqueta "dato1 y asi para las demas".
-                enviaDatos.putString("dato2", apellidos.getText().toString());
-                enviaDatos.putString("dato3", edad.getText().toString());
-                enviaDatos.putString("dato4", correo.getText().toString());
+               // Bundle enviaDatos = new Bundle();
+              //  enviaDatos.putString("dato1", nombres.getText().toString());  // aqui guardamos el nombre en el paquete usando la  etiqueta "dato1 y asi para las demas".
+              //  enviaDatos.putString("dato2", apellidos.getText().toString());
+              //  enviaDatos.putString("dato3", edad.getText().toString());
+              //  enviaDatos.putString("dato4", correo.getText().toString());
                 // Crear un "Intent" para indicar que queremos ir siguiente pantalla (ActivityPage)
-                Intent intent = new Intent(MainActivity.this, ActivityPage.class);
-                intent.putExtras(enviaDatos);// nos sirve para poder enviar los datos  desde una actividad de origen a una actividad de destino
-                startActivity(intent); //iniciamos la nueva pantalla
+               // Intent intent = new Intent(MainActivity.this, ActivityPage.class);
+              //  intent.putExtras(enviaDatos);// nos sirve para poder enviar los datos  desde una actividad de origen a una actividad de destino
+              //  startActivity(intent); //iniciamos la nueva pantalla
+                AddPerson();
             }
         });
-        AddPerson();
-    }
 
+    }
     private void AddPerson() {
         SQLiteConexion conexion = new SQLiteConexion(this, Transaciones.DBName, null, 1);
         SQLiteDatabase db = conexion.getWritableDatabase(); //modo de escritura
@@ -68,5 +68,13 @@ public class MainActivity extends AppCompatActivity {
                 Toast.LENGTH_SHORT).show();
 
         db.close();
+        // Limpiar los EditText después de la inserción
+        nombres.setText("");
+        apellidos.setText("");
+        edad.setText("");
+        correo.setText("");
+        // Regresar al Activity Dash
+        finish();
     }
+
 }

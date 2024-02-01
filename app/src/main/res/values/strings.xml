@@ -8,5 +8,7 @@
     <string name="Btn_atras">atras</string>
     <string name="edad">Ingrese Edad</string>
     <string name="correo">Ingrese el correo</string>
+    <string name="PantallaIngreso">Agregar pantalla</string>
+    <string name="ListaPersona">Listar persona</string>
 
 </resources>
