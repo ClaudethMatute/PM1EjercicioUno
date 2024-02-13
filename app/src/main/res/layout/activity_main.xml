@@ -9,13 +9,31 @@
     tools:context=".MainActivity">
 
     <EditText
+        android:id="@+id/direccion"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginEnd="44dp"
+        android:layout_marginBottom="59dp"
+        android:background="@android:drawable/bottom_bar"
+        android:backgroundTint="#F4AAB5"
+        android:breakStrategy="simple"
+        android:ems="10"
+        android:hint="@string/Direccion"
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/btnprocesar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/correo" />
+
+    <EditText
         android:id="@+id/nombres"
-        android:layout_width="317dp"
-        android:layout_height="52dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="52dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="16dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="46dp"
+        android:layout_marginTop="61dp"
+        android:layout_marginEnd="46dp"
+        android:layout_marginBottom="24dp"
         android:background="@android:drawable/bottom_bar"
         android:backgroundTint="#F4AAB5"
         android:breakStrategy="simple"
@@ -29,11 +47,11 @@
 
     <EditText
         android:id="@+id/apellidos"
-        android:layout_width="322dp"
-        android:layout_height="49dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="16dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginEnd="44dp"
+        android:layout_marginBottom="10dp"
         android:background="@android:drawable/bottom_bar"
         android:backgroundTint="#F4AAB5"
         android:ems="10"
@@ -46,29 +64,30 @@
 
     <Button
         android:id="@+id/btnprocesar"
-        android:layout_width="313dp"
-        android:layout_height="47dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginEnd="48dp"
-        android:layout_marginBottom="321dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="49dp"
+        android:layout_marginEnd="49dp"
+        android:layout_marginBottom="15dp"
         android:background="@color/design_default_color_error"
         android:backgroundTint="#FF5722"
         android:onClick="btnprocesar"
         android:text="procesar"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/BtnEliminar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/correo"
+        app:layout_constraintTop_toBottomOf="@+id/direccion"
         app:strokeColor="#020202"
         tools:text="@string/Btn_procesar" />
 
+
     <EditText
         android:id="@+id/edad"
-        android:layout_width="320dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginEnd="28dp"
-        android:layout_marginBottom="14dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginEnd="44dp"
+        android:layout_marginBottom="23dp"
         android:background="@android:drawable/bottom_bar"
         android:backgroundTint="#F4AAB5"
         android:ems="10"
@@ -81,18 +100,33 @@
 
     <EditText
         android:id="@+id/correo"
-        android:layout_width="317dp"
-        android:layout_height="52dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginEnd="28dp"
-        android:layout_marginBottom="14dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="46dp"
+        android:layout_marginEnd="46dp"
+        android:layout_marginBottom="23dp"
         android:background="@android:drawable/bottom_bar"
         android:backgroundTint="#F4AAB5"
         android:ems="10"
         android:hint="@string/correo"
         android:inputType="textEmailAddress"
-        app:layout_constraintBottom_toTopOf="@+id/btnprocesar"
+        app:layout_constraintBottom_toTopOf="@+id/direccion"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edad" />
+
+    <Button
+        android:id="@+id/BtnEliminar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="132dp"
+        android:layout_marginBottom="154dp"
+        android:text="@string/Eliminar"
+        android:visibility="invisible"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnprocesar"
+        tools:visibility="invisible" />/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

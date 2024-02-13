@@ -2,11 +2,15 @@ package com.example.pm1ejercicio1;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.pm1ejercicio1.Models.Personas;
 import com.example.pm1ejercicio1.configuracion.SQLiteConexion;
@@ -27,11 +31,43 @@ public class ActivityList extends AppCompatActivity {
 
        conexion = new SQLiteConexion(this, Transaciones.DBName, null, 1); //amara o castea las clases
        listpersonas = (ListView) findViewById(R.id.listpersonas);
- //obtenr la informacion
+       //obtenr la informacion
        ObtenerInfo();
+        ////////////nuevo///////////
+        listpersonas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Personas personaSeleccionada = Lista.get(position);
+                Intent intent = new Intent(ActivityList.this, MainActivity.class);
+
+                intent.putExtra("id", personaSeleccionada.getId().toString());
+                intent.putExtra("nombres", personaSeleccionada.getNombre());
+                intent.putExtra("apellidos", personaSeleccionada.getApellidos());
+                intent.putExtra("edad", personaSeleccionada.getEdad());
+                intent.putExtra("correo", personaSeleccionada.getCorreo());
+                intent.putExtra("direccion", personaSeleccionada.getDireccion());
+                startActivity(intent);
+
+            }
+
+        });
+
+
        //custor adater la forma de llenar la infromacion dentro de un objet fisico
         ArrayAdapter adp = new ArrayAdapter(this, android.R.layout.simple_list_item_1,Arreglo);
         listpersonas.setAdapter(adp);
+
+        //para selecionar un dato o tomar un elemento
+        listpersonas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                String ElementoSeleccionado =(String) parent.getItemAtPosition(position);
+
+                Toast.makeText(getApplicationContext(),
+                        "Seleccionaste " + ElementoSeleccionado, Toast.LENGTH_LONG).show();
+            }
+        });
 
     }
 
@@ -54,6 +90,7 @@ public class ActivityList extends AppCompatActivity {
             person.setApellidos(cursor.getString(2));
             person.setEdad(cursor.getInt(3));
             person.setCorreo(cursor.getString(4));
+            person.setDireccion(cursor.getString(5));
 
             Lista.add(person);
         }
@@ -69,7 +106,7 @@ public class ActivityList extends AppCompatActivity {
         {
             Arreglo.add(Lista.get(i).getId() + " - "+
                     Lista.get(i).getNombre()  +" - "+
-                    Lista.get(i).getApellidos()) ;
-        }
+                    Lista.get(i).getApellidos());
+       }
     }
 }

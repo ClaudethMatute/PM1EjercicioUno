@@ -5,7 +5,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
-
 public class SQLiteConexion extends SQLiteOpenHelper
 {
 
@@ -23,6 +22,5 @@ public class SQLiteConexion extends SQLiteOpenHelper
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL(Transaciones.DropTablePersonas);
         onCreate(db);
-
     }
 }

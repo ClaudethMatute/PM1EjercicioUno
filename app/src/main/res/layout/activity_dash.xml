@@ -8,15 +8,16 @@
 
     <Button
         android:id="@+id/btnadd"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="341dp"
+        android:layout_height="46dp"
         android:layout_marginStart="30dp"
         android:layout_marginTop="228dp"
         android:layout_marginEnd="30dp"
+        android:layout_marginBottom="16dp"
         android:hint="@string/PantallaIngreso"
         android:text="Agregar Persona"
+        app:layout_constraintBottom_toTopOf="@+id/btnlist"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -25,12 +26,26 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="64dp"
         android:layout_marginEnd="30dp"
+        android:layout_marginBottom="20dp"
         android:hint="@string/ListaPersona"
         android:text="listar personas"
+        app:layout_constraintBottom_toTopOf="@+id/btntomarfotografia"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnadd" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <Button
+        android:id="@+id/btntomarfotografia"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="17dp"
+        android:text="@string/TomarFoto"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnlist" />
 </androidx.constraintlayout.widget.ConstraintLayout>

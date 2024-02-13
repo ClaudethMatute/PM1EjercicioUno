@@ -15,8 +15,11 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    EditText nombres, apellidos, edad,correo;
-    Button btnproceso;
+    EditText nombres, apellidos, edad,correo,direccion;
+    Button btnproceso,BtnEliminar;
+
+    //////////////nuevo
+    String idPersona = "0";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,14 +30,15 @@ public class MainActivity extends AppCompatActivity {
         apellidos = (EditText) findViewById(R.id.apellidos);
         edad = (EditText) findViewById(R.id.edad);
         correo = (EditText) findViewById(R.id.correo);
+        direccion = (EditText) findViewById(R.id.direccion);
         btnproceso = (Button) findViewById(R.id.btnprocesar);
-
+        BtnEliminar = (Button) findViewById(R.id.BtnEliminar);
 
         btnproceso.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-               // Bundle enviaDatos = new Bundle();
+               // Bundle enviaDatos = new Bundle(); ENVIO DE DATOS A OTRA PESTAÑA
               //  enviaDatos.putString("dato1", nombres.getText().toString());  // aqui guardamos el nombre en el paquete usando la  etiqueta "dato1 y asi para las demas".
               //  enviaDatos.putString("dato2", apellidos.getText().toString());
               //  enviaDatos.putString("dato3", edad.getText().toString());
@@ -57,6 +61,8 @@ public class MainActivity extends AppCompatActivity {
         valores.put(Transaciones.apellidos, apellidos.getText().toString());
         valores.put(Transaciones.edad, edad.getText().toString());
         valores.put(Transaciones.correo, correo.getText().toString());
+        valores.put(Transaciones.direccion, direccion.getText().toString());
+
 
 
         // Insertar datos en la tabla
@@ -73,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
         apellidos.setText("");
         edad.setText("");
         correo.setText("");
+        direccion.setText("");
         // Regresar al Activity Dash
         finish();
     }

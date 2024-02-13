@@ -10,5 +10,8 @@
     <string name="correo">Ingrese el correo</string>
     <string name="PantallaIngreso">Agregar pantalla</string>
     <string name="ListaPersona">Listar persona</string>
+    <string name="Direccion">Ingrese La Direccion</string>
+    <string name="Eliminar">Desea Eliminar</string>
+    <string name="TomarFoto">capturar imagen</string>
 
 </resources>

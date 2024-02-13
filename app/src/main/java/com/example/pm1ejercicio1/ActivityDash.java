@@ -9,7 +9,7 @@ import android.widget.Button;
 
 public class ActivityDash extends AppCompatActivity {
 
-    Button btnadd,btnlist;
+    Button btnadd,btnlist,btntomarfotografia;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -17,6 +17,7 @@ public class ActivityDash extends AppCompatActivity {
 
         btnadd = (Button) findViewById(R.id.btnadd);
         btnlist = (Button) findViewById(R.id.btnlist);
+        btntomarfotografia = (Button) findViewById(R.id.btntomarfotografia);
 
         btnadd.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -34,5 +35,12 @@ public class ActivityDash extends AppCompatActivity {
             }
         });
 
+        btntomarfotografia.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), ActivityFoto.class);
+                startActivity(intent);
+            }
+        });
     }
 }

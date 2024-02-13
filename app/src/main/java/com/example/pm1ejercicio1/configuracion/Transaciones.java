@@ -12,10 +12,13 @@ public class Transaciones {
     public static final  String edad = "edad";
     public static final  String correo = "correo";
 
+    public static final  String direccion = "direccion";
+
+
     //ddl crate
     public static final  String CreateTablePersonas = "CREATE TABLE " + Tablepersonas + "(" +
            " id  INTEGER PRIMARY KEY AUTOINCREMENT , nombre  TEXT,  apellidos  TEXT,  edad INTEGER,"+
-            "correo TEXT) ";
+            "correo TEXT, direccion TEXT) ";
 
     //ddl drop
     public static final  String DropTablePersonas = "DROP TABLE IF EXISTS " + Tablepersonas ;
