@@ -10,6 +10,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -25,7 +26,7 @@ public class ActivityFoto1 extends AppCompatActivity {
 
     String fotopath;
     ImageView imageView;
-    Button btntomarfoto;
+    Button btntomarfoto,btnCompartir ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +35,7 @@ public class ActivityFoto1 extends AppCompatActivity {
 
         imageView = (ImageView) findViewById(R.id.imageView);
         btntomarfoto = (Button) findViewById(R.id.btntomarfoto);
+        btnCompartir = (Button) findViewById(R.id.btnCompartirV);
 
         btntomarfoto.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,7 +43,36 @@ public class ActivityFoto1 extends AppCompatActivity {
                 mostrarDialogo(); // Llama al método para mostrar el diálogo de selección
             }
         });
+        btnCompartir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                compartirImagen();
+            }
+        });
     }
+
+    private void compartirImagen() {
+        // Comprobar si hay una imagen en el ImageView
+        if (imageView.getDrawable() == null) {
+            Toast.makeText(getApplicationContext(), "No hay imagen para compartir", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        // Obtener el bitmap de la imagen en el ImageView
+        BitmapDrawable bitmapDrawable = (BitmapDrawable) imageView.getDrawable();
+        Bitmap bitmap = bitmapDrawable.getBitmap();
+
+        // Guardar el bitmap en un archivo temporal
+        String path = MediaStore.Images.Media.insertImage(getContentResolver(), bitmap, "Imagen compartida", null);
+        Uri imageUri = Uri.parse(path);
+
+        // Crear un intent para compartir la imagen
+        Intent shareIntent = new Intent(Intent.ACTION_SEND);
+        shareIntent.setType("image/*");
+        shareIntent.putExtra(Intent.EXTRA_STREAM, imageUri);
+        startActivity(Intent.createChooser(shareIntent, "Compartir imagen"));
+    }
+
 
     private void mostrarDialogo() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
