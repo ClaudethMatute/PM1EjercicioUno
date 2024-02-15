@@ -26,13 +26,14 @@ public class ActivityFoto1 extends AppCompatActivity {
     String fotopath;
     ImageView imageView;
     Button btntomarfoto;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_foto1);
 
-        imageView =(ImageView)findViewById(R.id.imageView);
-        btntomarfoto =(Button)findViewById(R.id.btntomarfoto);
+        imageView = (ImageView) findViewById(R.id.imageView);
+        btntomarfoto = (Button) findViewById(R.id.btntomarfoto);
 
         btntomarfoto.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,6 +42,7 @@ public class ActivityFoto1 extends AppCompatActivity {
             }
         });
     }
+
     private void mostrarDialogo() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Seleccionar una opción")
@@ -67,16 +69,34 @@ public class ActivityFoto1 extends AppCompatActivity {
 
 
     private void permisos() {
-        if (ContextCompat.checkSelfPermission(getApplicationContext(), android.Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+        if (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, permiso_camara);
         } else {
             tomarfoto(); // Si ya tiene permisos, toma la foto
         }
     }
+
     private void tomarfoto() {
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE); // intencion de tomar fotografia
         if (intent.resolveActivity(getPackageManager()) != null)
             startActivityForResult(intent, peticion_foto); // Inicia la actividad de tomar foto con el código de solicitud existente
+    }
+
+    private void guardarFotoEnGaleria(Bitmap bitmap) {
+        String nombreImagen = "foto_" + System.currentTimeMillis() + ".jpg"; // Nombre de archivo único
+        String rutaImagen = MediaStore.Images.Media.insertImage(getContentResolver(), bitmap, nombreImagen, null);
+
+        if (rutaImagen != null) {
+            // Escanear el archivo para que sea detectado por la aplicación de la galería
+            Intent intentScan = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
+            Uri uriImagen = Uri.parse(rutaImagen);
+            intentScan.setData(uriImagen);
+            sendBroadcast(intentScan);
+
+            Toast.makeText(getApplicationContext(), "Foto guardada en la galería", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(getApplicationContext(), "Error al guardar la foto en la galería", Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override
@@ -99,6 +119,9 @@ public class ActivityFoto1 extends AppCompatActivity {
                 Bundle extras = data.getExtras();
                 Bitmap imagen = (Bitmap) extras.get("data");
                 imageView.setImageBitmap(imagen); // Establece la imagen tomada en el ImageView
+
+                // Guardar la foto en la galería
+                guardarFotoEnGaleria(imagen);
             } else if (requestCode == seleccionar_foto) { // Si la solicitud es para seleccionar de la galería
                 Uri path = data.getData();
                 imageView.setImageURI(path); // Establece la imagen seleccionada de la galería en el ImageView
@@ -106,4 +129,3 @@ public class ActivityFoto1 extends AppCompatActivity {
         }
     }
 }
-
