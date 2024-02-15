@@ -8,12 +8,13 @@
 
     <Button
         android:id="@+id/btnadd"
-        android:layout_width="341dp"
-        android:layout_height="46dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="228dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginBottom="16dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="98dp"
+        android:layout_marginEnd="33dp"
+        android:layout_marginBottom="25dp"
+        android:backgroundTint="#FF5722"
         android:hint="@string/PantallaIngreso"
         android:text="Agregar Persona"
         app:layout_constraintBottom_toTopOf="@+id/btnlist"
@@ -22,30 +23,73 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btnlist"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginBottom="20dp"
-        android:hint="@string/ListaPersona"
-        android:text="listar personas"
-        app:layout_constraintBottom_toTopOf="@+id/btntomarfotografia"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="packed" />
-
-    <Button
         android:id="@+id/btntomarfotografia"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
-        android:layout_marginBottom="17dp"
+        android:layout_marginBottom="21dp"
         android:text="@string/TomarFoto"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btnreconocimiento"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnlist" />
+
+    <Button
+        android:id="@+id/btntomarvideo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="14dp"
+        android:backgroundTint="#C11515"
+        android:text="@string/TomarVideo"
+        app:layout_constraintBottom_toTopOf="@+id/btncombo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnreconocimiento" />
+
+    <Button
+        android:id="@+id/btnreconocimiento"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="15dp"
+        android:backgroundTint="#00BCD4"
+        android:text="Reconocimiento de Voz"
+        app:layout_constraintBottom_toTopOf="@+id/btntomarvideo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btntomarfotografia" />
+
+    <Button
+        android:id="@+id/btnlist"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="14dp"
+        android:backgroundTint="#4CAF50"
+        android:hint="@string/ListaPersona"
+        android:text="listar personas"
+        app:layout_constraintBottom_toTopOf="@+id/btntomarfotografia"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnadd" />
+
+    <Button
+        android:id="@+id/btncombo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="251dp"
+        android:backgroundTint="#2125F3"
+        android:text="uso del combo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btntomarvideo" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

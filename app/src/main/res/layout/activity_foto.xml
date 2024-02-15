@@ -18,6 +18,8 @@
         android:id="@+id/btntomarfoto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/material_dynamic_neutral60"
+        android:onClick="onclick"
         android:text="@string/TomarFoto"
-        android:onClick="onclick"/>
+        app:strokeColor="#121111" />
 </LinearLayout>

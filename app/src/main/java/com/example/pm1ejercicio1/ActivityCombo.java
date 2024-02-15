@@ -23,7 +23,7 @@ public class ActivityCombo extends AppCompatActivity {
     Spinner combopersonas;
     EditText nombres, apellidos, correo;
 
-    ArrayList<Personas> Lista;
+    ArrayList<Personas> lista;
     ArrayList<String> Arreglo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,9 +49,9 @@ public class ActivityCombo extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 try
                 {
-                    nombres.setText(Lista.get(position).getNombre());
-                    apellidos.setText(Lista.get(position).getApellidos());
-                    correo.setText(Lista.get(position).getCorreo());
+                    nombres.setText(lista.get(position).getNombre());
+                    apellidos.setText(lista.get(position).getApellidos());
+                    correo.setText(lista.get(position).getCorreo());
                 }
                 catch (Exception ex)
                 {
@@ -72,12 +72,12 @@ public class ActivityCombo extends AppCompatActivity {
     {
         SQLiteDatabase db = conexion.getReadableDatabase();
         Personas person = null;
-        Lista = new ArrayList<Personas>();
+        lista = new ArrayList<Personas>();
 
         // Cursor de base de datos para recorrer los datos
         Cursor cursor = db.rawQuery(Transaciones.SelectAllPersonas, null);
 
-        while(cursor.moveToNext())
+        while (cursor.moveToNext())
         {
             person = new Personas();
             person.setId(cursor.getInt(0));
@@ -85,9 +85,8 @@ public class ActivityCombo extends AppCompatActivity {
             person.setApellidos(cursor.getString(2));
             person.setEdad(cursor.getInt(3));
             person.setCorreo(cursor.getString(4));
-            person.setDireccion(cursor.getString(5));
 
-            Lista.add(person);
+            lista.add(person);
         }
 
         cursor.close();
@@ -98,11 +97,11 @@ public class ActivityCombo extends AppCompatActivity {
     private void FillData()
     {
         Arreglo = new ArrayList<String>();
-        for(int i = 0; i < Lista.size(); i ++)
+        for(int i = 0; i < lista.size(); i ++)
         {
-            Arreglo.add(Lista.get(i).getId() + " - "+
-                    Lista.get(i).getNombre()  +" - "+
-                    Lista.get(i).getApellidos()) ;
+            Arreglo.add(lista.get(i).getId() + " - "+
+                    lista.get(i).getNombre()  +" - "+
+                    lista.get(i).getApellidos()) ;
         }
     }
 }

@@ -9,7 +9,7 @@ import android.widget.Button;
 
 public class ActivityDash extends AppCompatActivity {
 
-    Button btnadd,btnlist,btntomarfotografia;
+    Button btnadd,btnlist,btntomarfotografia,btntomarvideo,btnreconocimiento,btncombo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,6 +18,14 @@ public class ActivityDash extends AppCompatActivity {
         btnadd = (Button) findViewById(R.id.btnadd);
         btnlist = (Button) findViewById(R.id.btnlist);
         btntomarfotografia = (Button) findViewById(R.id.btntomarfotografia);
+        btntomarvideo = (Button) findViewById(R.id.btntomarvideo);
+        btnreconocimiento = (Button) findViewById(R.id.btnreconocimiento);
+        btncombo = (Button) findViewById(R.id.btncombo);
+
+
+
+
+
 
         btnadd.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,5 +50,30 @@ public class ActivityDash extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        btntomarvideo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), Activityvideo.class);
+                startActivity(intent);
+            }
+        });
+
+        btnreconocimiento.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), ActivitySpeech.class);
+                startActivity(intent);
+            }
+        });
+
+        btncombo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), ActivityCombo.class);
+                startActivity(intent);
+            }
+        });
+
     }
 }

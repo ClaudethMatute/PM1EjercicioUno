@@ -13,5 +13,10 @@
     <string name="Direccion">Ingrese La Direccion</string>
     <string name="Eliminar">Desea Eliminar</string>
     <string name="TomarFoto">capturar imagen</string>
+    <string name="TomarVideo">Tomar video</string>
+    <string name="Video" />
+    <string name="Grabar">Tomar el  video</string>
+    <string name="Ver">ver video</string>
+    <string name="video">video</string>
 
 </resources>
