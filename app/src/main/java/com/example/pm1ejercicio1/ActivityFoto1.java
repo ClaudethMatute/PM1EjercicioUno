@@ -18,23 +18,21 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-public class ActivityFoto extends AppCompatActivity {
+public class ActivityFoto1 extends AppCompatActivity {
     static final int permiso_camara = 100;
     static final int peticion_foto = 102;
     static final int seleccionar_foto = 103; // Nuevo código de solicitud para seleccionar una foto
 
-
     String fotopath;
     ImageView imageView;
     Button btntomarfoto;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_foto);
+        setContentView(R.layout.activity_foto1);
 
-        imageView = findViewById(R.id.imageView);
-        btntomarfoto = findViewById(R.id.btntomarfoto);
+        imageView =(ImageView)findViewById(R.id.imageView);
+        btntomarfoto =(Button)findViewById(R.id.btntomarfoto);
 
         btntomarfoto.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,7 +67,7 @@ public class ActivityFoto extends AppCompatActivity {
 
 
     private void permisos() {
-        if (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+        if (ContextCompat.checkSelfPermission(getApplicationContext(), android.Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, permiso_camara);
         } else {
             tomarfoto(); // Si ya tiene permisos, toma la foto
