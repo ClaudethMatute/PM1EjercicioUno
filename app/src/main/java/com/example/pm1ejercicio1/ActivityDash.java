@@ -23,10 +23,6 @@ public class ActivityDash extends AppCompatActivity {
         btncombo = (Button) findViewById(R.id.btncombo);
 
 
-
-
-
-
         btnadd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
